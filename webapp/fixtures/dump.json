@@ -1,0 +1,79 @@
+[
+{
+    "model": "webapp.product",
+    "pk": 1,
+    "fields": {
+        "name_product": "Лосось",
+        "descr_product": "свежая рыба",
+        "category": "seafood",
+        "remainder": 5,
+        "price": "250.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 2,
+    "fields": {
+        "name_product": "яблоки",
+        "descr_product": "зеленые яблоки с нарына",
+        "category": "fruit",
+        "remainder": 15,
+        "price": "100.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 3,
+    "fields": {
+        "name_product": "вишня",
+        "descr_product": "Вишня сочная",
+        "category": "fruit",
+        "remainder": 5,
+        "price": "180.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 4,
+    "fields": {
+        "name_product": "креветки",
+        "descr_product": "",
+        "category": "seafood",
+        "remainder": 1,
+        "price": "520.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 5,
+    "fields": {
+        "name_product": "масло",
+        "descr_product": "",
+        "category": "dairy",
+        "remainder": 1,
+        "price": "180.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 6,
+    "fields": {
+        "name_product": "слива",
+        "descr_product": "",
+        "category": "fruit",
+        "remainder": 15,
+        "price": "52.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 7,
+    "fields": {
+        "name_product": "кукуруза",
+        "descr_product": "",
+        "category": "other",
+        "remainder": 5,
+        "price": "80.00"
+    }
+}
+]
