@@ -6,12 +6,12 @@ from webapp.forms import ProductFrom, SearchForm
 
 # Create your views here.
 def index_view(request):
-    product = Product.objects.order_by('-name_product')
+    product = Product.objects.order_by('-name_product', 'category')
     context = {'products': product}
     return render(request, 'index.html', context)
 
 
-def list_view(request, pk):
+def product_view(request, pk):
     try:
         product = Product.objects.get(pk=pk)
     except Product.DoesNotExist:
