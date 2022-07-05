@@ -5,7 +5,7 @@ from webapp.models import Product
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name_product', 'descr_product', 'category']
+    list_display = ['id', 'category', 'name_product']
     list_filter = ['category']
     search_fields = ['category']
     fields = ['name_product', 'category', 'descr_product', 'remainder', 'price']

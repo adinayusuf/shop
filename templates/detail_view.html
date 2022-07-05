@@ -9,13 +9,13 @@
     <br>
     <div class="card text-center">
         <div class="card-header">
-            {{ product.category }}
+            Category: {{ product.category }}
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ product.name_product|upper }}</h5>
-            <p class="card-text">{{ product.descr_product }}</p>
-            <p class="card-text">{{ product.price }}</p>
-            <p class="card-text">{{ product.remainder }}</p>
+            <h5 class="card-title"> Name: {{ product.name_product|upper }}</h5>
+            <p class="card-text"> Description: {{ product.descr_product }}</p>
+            <p class="card-text"> Price: {{ product.price }}</p>
+            <p class="card-text"> Remainder: {{ product.remainder }}</p>
             <a href="{% url 'delete_product' product.pk %}" class="btn btn-primary">DELETE</a>
             <a href="{% url 'update_product' product.pk %}" class="btn btn-primary">EDIT</a>
             <a href="{% url 'index' %}" class="btn btn-primary">BACK</a>

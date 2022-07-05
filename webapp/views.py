@@ -6,7 +6,7 @@ from webapp.forms import ProductFrom, SearchForm
 
 # Create your views here.
 def index_view(request):
-    product = Product.objects.order_by('-name_product', 'category')
+    product = Product.objects.order_by('-name_product', 'category').sorted()
     context = {'products': product}
     return render(request, 'index.html', context)
 
@@ -34,7 +34,7 @@ def create_product(request):
     new_desc = Product.objects.create(name_product=name_product, descr_product=descr_product, category=category,
                                       remainder=remainder, price=price)
     new_desc.save()
-    return redirect('list_view', pk=new_desc.pk)
+    return redirect('detail_view', pk=new_desc.pk)
 
 
 def delete_product(request, pk):
@@ -56,7 +56,7 @@ def update_product(request, pk):
             'remainder': product.remainder,
             'price': product.price
         })
-        return render(request, 'update.html', {'form': form})
+        return render(request, 'update.html', {'form': form, 'product': product})
     else:
         form = ProductFrom(data=request.POST)
         if form.is_valid():
@@ -67,7 +67,7 @@ def update_product(request, pk):
             product.price = form.cleaned_data.get('price')
             product.save()
             return redirect('list_view', pk=product.pk)
-        return render(request, 'update.html', {'form': form})
+        return render(request, 'update.html', {'form': form, 'product': product})
 
 
 def product_search(request):
@@ -84,3 +84,4 @@ def product_search(request):
                   {'form': form,
                    'query': query,
                    'results': results})
+
