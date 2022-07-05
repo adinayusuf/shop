@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+{% load static %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'create_product' %}">Create product</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'product_search' %}">Find product</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <h1>Products</h1>
+    {% for product in  products %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name_product }}</h5>
+                <p class="card-text">{{ product.price }}</p>
+                <p class="card-text">{{ product.category }}</p>
+                <a href="{% url "detail_view" product.pk %}" class="btn btn-primary">MORE</a>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock %}
+

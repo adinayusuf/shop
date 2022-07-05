@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Update Product{% endblock %}
+{% block content %}
+    <h1>Update Product</h1>
+    <form method="post" action=" ">
+        {% include "partial/form.html" with button_text="Edit" %}
+
+        <a href="{% url "index" %}" class="btn btn-primary">BACK</a>
+    </form>
+{% endblock %}
+

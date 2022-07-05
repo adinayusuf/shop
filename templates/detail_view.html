@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} Detail List{% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'create_product' %}">Create Product</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <br>
+    <div class="card text-center">
+        <div class="card-header">
+            {{ product.category }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name_product|upper }}</h5>
+            <p class="card-text">{{ product.descr_product }}</p>
+            <p class="card-text">{{ product.price }}</p>
+            <p class="card-text">{{ product.remainder }}</p>
+            <a href="{% url 'delete_product' product.pk %}" class="btn btn-primary">DELETE</a>
+            <a href="{% url 'update_product' product.pk %}" class="btn btn-primary">EDIT</a>
+            <a href="{% url 'index' %}" class="btn btn-primary">BACK</a>
+        </div>
+    </div>
+{% endblock %}
+
