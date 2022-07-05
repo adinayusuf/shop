@@ -1,3 +1,4 @@
+from django.db.models.functions import Lower
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import Product
@@ -6,7 +7,7 @@ from webapp.forms import ProductFrom, SearchForm
 
 # Create your views here.
 def index_view(request):
-    product = Product.objects.order_by('-name_product', 'category').sorted()
+    product = Product.objects.order_by(Lower('name_product')).exclude(remainder='1')
     context = {'products': product}
     return render(request, 'index.html', context)
 
