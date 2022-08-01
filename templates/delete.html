@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Delete Product{% endblock %}
+{% block title %}Удаление{% endblock %}
 {% block content %}
 
 <form action=" " method="post">
     {% csrf_token %}
-    <h2>Are you sure you want to delete the product {{ product.name_product }}?</h2>
-    <button type="submit" class="btn btn-primary">YES</button>
-<a href="{% url "detail_view" product.pk %}" class="btn btn-primary">NO</a>
+    <h2>Вы действительно хотите удалить {{ product.name_product }}?</h2>
+    <button type="submit" class="btn btn-primary">ДА</button>
+<a href="{% url "detail_view" product.pk %}" class="btn btn-primary">НЕТ</a>
 </form>
 {% endblock %}
 

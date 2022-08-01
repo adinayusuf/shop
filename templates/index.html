@@ -3,20 +3,20 @@
 {% load static %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'create_product' %}">Create product</a>
+        <a class="nav-link" href="{% url 'create_product' %}">Создать продукт</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'product_search' %}">Find product</a>
+        <a class="nav-link" href="{% url 'product_search' %}">Найти продукт</a>
     </li>
 {% endblock %}
 {% block content %}
-    <h1>Products</h1>
+    <h1>Продукты</h1>
     {% for product in  products %}
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <a href="{% url "detail_view" product.pk %}" style="text-decoration: none;color: red"><h5 class="card-title">{{ product.name_product }}</h5></a>
                 <p class="card-text">{{ product.price }}</p>
-                <p class="card-text">{{ product.category }}</p>
+                <p class="card-text">{{ product.get_category_display  }}</p>
             </div>
         </div>
         <br>

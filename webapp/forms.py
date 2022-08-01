@@ -4,8 +4,8 @@ from webapp.models import CATEGORY
 
 
 class ProductFrom(forms.Form):
-    name_product = forms.CharField(max_length=100, required=False, label='Название')
-    descr_product = forms.CharField(max_length=2000, required=True, label='Текст',
+    name_product = forms.CharField(max_length=100, required=True, label='Название')
+    descr_product = forms.CharField(max_length=2000, required=False, label='Текст',
                                     widget=widgets.Textarea(attrs={'cols': 20, 'rows': 5}))
     category = forms.ChoiceField(choices=CATEGORY, initial=CATEGORY[0][1], label='Категория')
     remainder = forms.IntegerField(min_value=0, label='Остаток')

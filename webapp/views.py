@@ -7,7 +7,7 @@ from webapp.forms import ProductFrom, SearchForm
 
 # Create your views here.
 def index_view(request):
-    product = Product.objects.order_by(Lower('name_product')).exclude(remainder='1')
+    product = Product.objects.exclude(remainder=0).order_by('category', 'name_product')
     context = {'products': product}
     return render(request, 'index.html', context)
 
@@ -67,7 +67,7 @@ def update_product(request, pk):
             product.remainder = form.cleaned_data.get('remainder')
             product.price = form.cleaned_data.get('price')
             product.save()
-            return redirect('list_view', pk=product.pk)
+            return redirect('detail_view', pk=product.pk)
         return render(request, 'update.html', {'form': form, 'product': product})
 
 
