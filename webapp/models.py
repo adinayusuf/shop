@@ -38,3 +38,21 @@ class ItemCart(models.Model):
         verbose_name_plural = 'Товары в корзине'
 
 
+class OrderProduct(models.Model):
+    order = models.ForeignKey('webapp.Order', on_delete=models.CASCADE)
+    product = models.ForeignKey('webapp.Product', on_delete=models.CASCADE)
+    amount = models.PositiveIntegerField(verbose_name="Количество")
+
+
+class Order(models.Model):
+    products = models.ManyToManyField("webapp.Product", related_name='orders',
+                                      verbose_name='Продукты', through=OrderProduct)
+    user = models.CharField(max_length=30, blank=True, verbose_name='Покупатель')
+    phone = models.CharField(max_length=30,  verbose_name='Телефон')
+    address = models.CharField(max_length=30, verbose_name='Адрес')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+
+    class Meta:
+        db_table = 'order'
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'

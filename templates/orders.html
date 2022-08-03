@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Заказы{% endblock %}
+{% block nav %} {% endblock %}
+{% block content %}
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Сумма</th>
+                <th scope="col">Время заказа</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for item in order_products%}
+                    <tr>
+                        <td>{{ item.product.name_goods }}</td>
+                        <td>{{ item.product.price|floatformat:-2 }}</td>
+                        <td>{{ item.amount }}</td>
+                        <td>{{ item.product_sum}}</td>
+                        <td>{{ item.order.created_at }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

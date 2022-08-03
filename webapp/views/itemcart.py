@@ -41,14 +41,15 @@ class CartAddView(View):
 
 
 class CartDeleteView(TemplateView):
-    template_name = 'item_cart.html'
-
-
-    def post(self, *args, **kwargs):
-        product = get_object_or_404(Product, id=kwargs.get('pk'))
-        product_cart = ItemCart.objects.filter(product=product)
-        if product_cart:
-
-
-    def get_success_url(self):
-        return reverse('cart_view')
+    pass
+    # template_name = 'item_cart.html'
+    #
+    #
+    # def post(self, *args, **kwargs):
+    #     product = get_object_or_404(Product, id=kwargs.get('pk'))
+    #     product_cart = ItemCart.objects.filter(product=product)
+    #     if product_cart:
+    #
+    #
+    # def get_success_url(self):
+    #     return reverse('cart_view')
