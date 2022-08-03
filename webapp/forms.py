@@ -13,7 +13,8 @@ class ProductFrom(forms.ModelForm):
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=30, required=False, label="Найти")
 
+
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('user',"phone", "address")
+        fields = ('user', "phone", "address")

@@ -18,15 +18,23 @@
             </thead>
             <tbody>
             {% for item in items %}
-            <tr>
-                <td>{{ item.product.name_product }}</td>
-                <td>{{ item.product.price }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>{{ item.product_sum }}</td>
-            </tr>
+                <tr>
+                    <td>{{ item.product.name_product }}</td>
+                    <td>{{ item.product.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.product_sum }}</td>
+                    <th scope="row">
+                        <form action="{% url 'cart_delete' item.product_id %}" method="POST">
+                            {% csrf_token %}
+                            <a>
+                                <button class="btn btn-danger" type="submit">Удалить</button>
+                            </a>
+                        </form>
+                    </th>
+                </tr>
             {% endfor %}
             </tbody>
-        <tfoot>
+            <tfoot>
             <tr>
                 <td></td>
                 <td></td>
@@ -40,7 +48,7 @@
         <a href="{% url 'index' %}" class="btn btn-primary">Назад</a>
         <br>
         <br>
-            <h1>Оформить заказ</h1>
+        <h1>Оформить заказ</h1>
         <form action="{% url "order_create" %}" method="post">
             {% include 'partial/form.html' with button_text="Оформить" %}
         </form>

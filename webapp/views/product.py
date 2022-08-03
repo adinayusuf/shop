@@ -15,6 +15,7 @@ class IndexView(ListView):
     context_object_name = 'products'
     ordering = 'name_product'
     paginate_by = 5
+    queryset = Product.objects.filter(remainder__gt=0)
 
 
 class ProductCreateView(CreateView):
