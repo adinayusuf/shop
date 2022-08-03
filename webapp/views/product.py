@@ -48,6 +48,7 @@ class ProductDeleteView(DeleteView):
     context_object_name = 'product'
     success_url = reverse_lazy('index')
 
+
 class SearchView(ListView):
     model = Product
     form_class = SearchForm

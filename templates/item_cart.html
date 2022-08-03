@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+{% load static %}
+{% block nav %}
+{% endblock %}
+{% block content %}
+
+    <div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Название:</th>
+                <th scope="col">Цена:</th>
+                <th scope="col">Количество:</th>
+                <th scope="col">Сумма:</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.product.name_product }}</td>
+                <td>{{ item.product.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product_sum }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Итого:</td>
+                <th scope="row">{{ total }}</th>
+            </tr>
+            </tfoot>
+        </table>
+<a href="{% url 'index' %}" class="btn btn-primary">Назад</a>
+    </div>
+
+{% endblock %}

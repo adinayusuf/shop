@@ -19,3 +19,22 @@ class Product(models.Model):
         db_table = 'product'
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+
+
+class ItemCart(models.Model):
+    product = models.ForeignKey('webapp.Product', on_delete=models.CASCADE, blank=True, related_name='items_cart')
+    quantity = models.PositiveIntegerField(verbose_name='Количество')
+
+    def __str__(self):
+        return f'{self.pk}. {self.product}:{self.quantity}'
+
+    @property
+    def product_sum(self):
+        return self.product.price * self.quantity
+
+    class Meta:
+        db_table = 'itemcart'
+        verbose_name = 'Товар в корзине'
+        verbose_name_plural = 'Товары в корзине'
+
+
