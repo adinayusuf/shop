@@ -1,0 +1,62 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Модераторы",
+    "permissions": [
+      [
+        "add_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "change_product",
+        "webapp",
+        "product"
+      ],
+      [
+        "delete_product",
+        "webapp",
+        "product"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$dn8lZe8b1Svf2yWIGsxTo8$XkPeQ2PcHgHWi1IDj+RRh0kzwPFmJ+AZm2NrK+fb7tk=",
+    "last_login": "2022-08-23T18:02:52.579Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-07-04T12:35:55.870Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$w167YHXZ3AXGoYRYqpUgqp$uASiv86n4FoOyLK8FDjzwkG13sCBp9tXm5l+/xWTS4M=",
+    "last_login": "2022-08-23T18:27:14.928Z",
+    "is_superuser": false,
+    "username": "adinka16",
+    "first_name": "Adina",
+    "last_name": "Yusuf",
+    "email": "adinkayus97@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-08-23T17:19:59.669Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

@@ -1,17 +1,6 @@
 [
 {
     "model": "webapp.product",
-    "pk": 1,
-    "fields": {
-        "name_product": "Лосось",
-        "descr_product": "свежая рыба",
-        "category": "seafood",
-        "remainder": 5,
-        "price": "250.00"
-    }
-},
-{
-    "model": "webapp.product",
     "pk": 2,
     "fields": {
         "name_product": "яблоки",
@@ -28,7 +17,7 @@
         "name_product": "вишня",
         "descr_product": "Вишня сочная",
         "category": "fruit",
-        "remainder": 5,
+        "remainder": 3,
         "price": "180.00"
     }
 },
@@ -39,7 +28,7 @@
         "name_product": "креветки",
         "descr_product": "",
         "category": "seafood",
-        "remainder": 1,
+        "remainder": 54,
         "price": "520.00"
     }
 },
@@ -48,7 +37,7 @@
     "pk": 5,
     "fields": {
         "name_product": "масло",
-        "descr_product": "",
+        "descr_product": "бьюбь",
         "category": "dairy",
         "remainder": 1,
         "price": "180.00"
@@ -74,6 +63,229 @@
         "category": "other",
         "remainder": 5,
         "price": "80.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 13,
+    "fields": {
+        "name_product": "конфеты",
+        "descr_product": "Ата-конфеты",
+        "category": "other",
+        "remainder": 5,
+        "price": "150.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 15,
+    "fields": {
+        "name_product": "абрикос",
+        "descr_product": "ИК абрикос",
+        "category": "fruit",
+        "remainder": 5,
+        "price": "100.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 16,
+    "fields": {
+        "name_product": "айран",
+        "descr_product": "тур айран",
+        "category": "dairy",
+        "remainder": -1,
+        "price": "100.00"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 18,
+    "fields": {
+        "name_product": "Лосось",
+        "descr_product": "fhgfh",
+        "category": "dairy",
+        "remainder": 3,
+        "price": "85.00"
+    }
+},
+{
+    "model": "webapp.itemcart",
+    "pk": 14,
+    "fields": {
+        "product": 18,
+        "quantity": 3
+    }
+},
+{
+    "model": "webapp.itemcart",
+    "pk": 15,
+    "fields": {
+        "product": 15,
+        "quantity": 1
+    }
+},
+{
+    "model": "webapp.itemcart",
+    "pk": 16,
+    "fields": {
+        "product": 3,
+        "quantity": 1
+    }
+},
+{
+    "model": "webapp.orderproduct",
+    "pk": 1,
+    "fields": {
+        "order": 9,
+        "product": 16,
+        "amount": 1
+    }
+},
+{
+    "model": "webapp.orderproduct",
+    "pk": 2,
+    "fields": {
+        "order": 10,
+        "product": 16,
+        "amount": 1
+    }
+},
+{
+    "model": "webapp.orderproduct",
+    "pk": 3,
+    "fields": {
+        "order": 11,
+        "product": 16,
+        "amount": 1
+    }
+},
+{
+    "model": "webapp.orderproduct",
+    "pk": 4,
+    "fields": {
+        "order": 11,
+        "product": 18,
+        "amount": 2
+    }
+},
+{
+    "model": "webapp.orderproduct",
+    "pk": 5,
+    "fields": {
+        "order": 11,
+        "product": 3,
+        "amount": 2
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 1,
+    "fields": {
+        "user": "",
+        "phone": "+996550667799",
+        "address": "sghgdhgf",
+        "created_at": "2022-08-03T06:02:30.510Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 2,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "ппап",
+        "created_at": "2022-08-03T06:22:23.939Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 3,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "ппап",
+        "created_at": "2022-08-03T06:30:34.669Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 4,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "ппап",
+        "created_at": "2022-08-03T06:31:23.682Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 5,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "tryrty",
+        "created_at": "2022-08-03T06:35:05.091Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 6,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "tryrty",
+        "created_at": "2022-08-03T06:36:15.010Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 7,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "tryrty",
+        "created_at": "2022-08-03T06:38:43.500Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 8,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "tryrty",
+        "created_at": "2022-08-03T06:38:45.700Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 9,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "tryrty",
+        "created_at": "2022-08-03T06:39:15.756Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 10,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "tryrty",
+        "created_at": "2022-08-03T06:39:37.605Z"
+    }
+},
+{
+    "model": "webapp.order",
+    "pk": 11,
+    "fields": {
+        "user": "павп",
+        "phone": "(212) 336-75-12",
+        "address": "tryrty",
+        "created_at": "2022-08-03T06:39:50.577Z"
     }
 }
 ]
