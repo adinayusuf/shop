@@ -6,7 +6,7 @@
     {% csrf_token %}
     <h2>Вы действительно хотите удалить {{ product.name_product }}?</h2>
     <button type="submit" class="btn btn-primary">ДА</button>
-<a href="{% url "detail_view" product.pk %}" class="btn btn-primary">НЕТ</a>
+<a href="{% url "webapp:detail_view" product.pk %}" class="btn btn-primary">НЕТ</a>
 </form>
 {% endblock %}
 

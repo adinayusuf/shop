@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models.functions import Lower
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
@@ -27,13 +28,15 @@ class ProductCreateView(CreateView):
         return reverse('detail_view', kwargs={"pk": self.object.pk})
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(PermissionRequiredMixin, DetailView):
+    permission_required = 'webapp:detail_product'
     model = Product
     template_name = 'product/detail_view.html'
     context_object_name = "product"
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'webapp:update_product'
     form_class = ProductFrom
     template_name = 'product/update.html'
     model = Product
@@ -43,7 +46,8 @@ class ProductUpdateView(UpdateView):
         return reverse('detail_view', kwargs={'pk': self.object.pk})
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'webapp:delete_product'
     template_name = 'product/delete.html'
     model = Product
     context_object_name = 'product'

@@ -4,7 +4,7 @@
     <h1>Создание продукта</h1>
     <form action=" " method="post">
         {% include "partial/form.html" with button_text="Создать" %}
-        <a href="{% url "index" %}" class="btn btn-primary">Назад</a>
+        <a href="{% url "webapp:index" %}" class="btn btn-primary">Назад</a>
     </form>
     <br/>
 {% endblock %}

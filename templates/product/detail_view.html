@@ -2,7 +2,7 @@
 {% block title %} Детальный просмотр{% endblock %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'create_product' %}">Создать продукт</a>
+        <a class="nav-link" href="{% url 'webapp:create_product' %}">Создать продукт</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -17,9 +17,13 @@
             <p class="card-text"> Описание: {{ product.descr_product }}</p>
             <p class="card-text"> Цена: {{ product.price }}</p>
             <p class="card-text"> Остаток: {{ product.remainder }}</p>
-            <a href="{% url 'delete_product' product.pk %}" class="btn btn-primary">Удалить</a>
-            <a href="{% url 'update_product' product.pk %}" class="btn btn-primary">Редактировать</a>
-            <a href="{% url 'index' %}" class="btn btn-primary">Назад</a>
+            {% if perms.webapp.delete_product %}
+                <a href="{% url 'webapp:delete_product' product.pk %}" class="btn btn-primary">Удалить</a>
+            {% endif %}
+            {% if perms.webapp.update_product %}
+                <a href="{% url 'webapp:update_product' product.pk %}" class="btn btn-primary">Редактировать</a>
+            {% endif %}
+            <a href="{% url 'webapp:index' %}" class="btn btn-primary">Назад</a>
         </div>
     </div>
 {% endblock %}

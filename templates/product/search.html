@@ -14,8 +14,8 @@
             <div class="card bg-light mb-3" style="max-width: 25rem;">
                 <div class="card-header">{{ product.name_product }} ({{ product.price }})<span
                         style="padding: 0px 40px;">&nbsp;</span>
-                    <a href="{% url 'update_product' product.pk %}">Редактировать</a>
-                    <a href="{% url 'delete_product' product.pk %}">Удалить</a></div>
+                    <a href="{% url 'webapp:update_product' product.pk %}">Редактировать</a>
+                    <a href="{% url 'webapp:delete_product' product.pk %}">Удалить</a></div>
                 <div class="card-body">
                     <p class="card-text">{{ product.descr_product }}</p>
                 </div>
@@ -24,13 +24,13 @@
             <p>Нет результатов.</p>
         {% endfor %}
         </button><a href="{% url "product_search" %}" class="btn btn-primary">Искать снова</a></button>
-        </button><a href="{% url "index" %}" class="btn btn-primary">Назад</a></button>
+        </button><a href="{% url "webapp:index" %}" class="btn btn-primary">Назад</a></button>
     {% else %}
         <h1>Search by name</h1>
         <form action=".." method="get">
             {{ form.as_p }}
             <input type="submit" value="Искать" class="btn btn-primary">
-            </button><a href="{% url "index" %}" class="btn btn-primary">Назад</a></button>
+            </button><a href="{% url "webapp:index" %}" class="btn btn-primary">Назад</a></button>
         </form>
     {% endif %}
 {% endblock %}

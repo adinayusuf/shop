@@ -2,11 +2,30 @@
 {% block title %}Products{% endblock %}
 {% load static %}
 {% block nav %}
+    {% if request.user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link menu-right" href="{% url "accounts:logout" %}">Выход</a>
+        </li>
+        <li class="menu-right nav-link">
+            <p>Привет, <a href="{% url 'accounts:profile' request.user.pk %}"
+                         style="text-decoration:none; color: red"> {{ user.username }}</a></p>
+        </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url "accounts:login" %}?next={{ request.get_full_path }}">Вход</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+               href="{% url "accounts:registration" %}?next={{ request.get_full_path }}">Регистрация</a>
+        </li>
+    {% endif %}
+    {% if perms.webapp.create_product %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'create_product' %}">Создать продукт</a>
+        <a class="nav-link" href="{% url 'webapp:create_product' %}">Создать продукт</a>
     </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'cart_view' %}">Корзина</a>
+    {% endif %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:cart_view' %}">Корзина</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -15,11 +34,14 @@
     {% for product in  products %}
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <a href="{% url "detail_view" product.pk %}" style="text-decoration: none;color: red"><h5
+                {% if perms.webapp.detail_product %}
+                <a href="{% url "webapp:detail_view" product.pk %}" style="text-decoration: none;color: red"><h5
                         class="card-title">{{ product.name_product }}</h5></a>
+                {% endif %}
+                <p class="card-text" style="text-decoration:none; color: red">{{ product.name_product }} </p>
                 <p class="card-text">{{ product.price }}</p>
                 <p class="card-text">{{ product.get_category_display }}</p>
-                 <form action="{% url "cart_add" product.pk %}" method="post">
+                <form action="{% url "webapp:cart_add" product.pk %}" method="post">
                     {% csrf_token %}
                     <input style="float: right" class="btn btn-danger" type="submit" value="Добавить в корзину"/>
                 </form>

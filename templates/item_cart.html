@@ -24,7 +24,7 @@
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.product_sum }}</td>
                     <th scope="row">
-                        <form action="{% url 'cart_delete' item.product_id %}" method="POST">
+                        <form action="{% url 'webapp:cart_delete' item.product_id %}" method="POST">
                             {% csrf_token %}
                             <a>
                                 <button class="btn btn-danger" type="submit">Удалить</button>
@@ -45,11 +45,11 @@
             </tfoot>
         </table>
 
-        <a href="{% url 'index' %}" class="btn btn-primary">Назад</a>
+        <a href="{% url 'webapp:index' %}" class="btn btn-primary">Назад</a>
         <br>
         <br>
         <h1>Оформить заказ</h1>
-        <form action="{% url "order_create" %}" method="post">
+        <form action="{% url "webapp:order_create" %}" method="post">
             {% include 'partial/form.html' with button_text="Оформить" %}
         </form>
     </div>

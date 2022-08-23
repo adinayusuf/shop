@@ -37,7 +37,7 @@ class CartAddView(View):
             new_cart.product = product
             new_cart.quantity = 1
             new_cart.save()
-        return redirect(reverse('index'))
+        return redirect(reverse('webapp:index'))
 
 
 class CartDeleteView(TemplateView):
@@ -51,4 +51,4 @@ class CartDeleteView(TemplateView):
         return redirect(self.get_success_url())
 
     def get_success_url(self):
-        return reverse('cart_view')
+        return reverse('webapp:cart_view')

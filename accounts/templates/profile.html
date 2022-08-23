@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+{% block nav %}
+    {% if user_obj == user %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:change_profile' user_obj.pk %}">Change profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{%  url 'accounts:change_password' %}"> Change password</a>
+        </li>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="card flex-row mt-3">
+        <div class="card-body">
+            {% if user_obj.profile.avatar %}
+                <img src="{{ user_obj.profile.avatar.url }}" class="card-img- w-25" alt="user avatar">
+            {% endif %}
+            <h5 class="card-title">{{ user_obj.username|upper }}</h5>
+            <br>
+            <p class="card-subtitle mb-2 -muted">{{ user_obj.first_name }}</p>
+            <p class="card-subtitle mb-2 -muted"> {{ user_obj.last_name }}</p>
+            <p class="card-subtitle mb-2 -muted">{{ user_obj.profile.about_user }}</p>
+            <p class="card-subtitle mb-2 -muted">{{ user_obj.email }}</p>
+            <p class="card-subtitle mb-2 -muted"> {{ user_obj.profile.git }}</p>
+        </div>
+    </div>
+    <h5 class="text-center clear">Projects user:</h5>
+    {% include 'partial/project_list_partial.html' %}
+{% endblock %}

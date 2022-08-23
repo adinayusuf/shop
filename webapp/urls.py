@@ -4,6 +4,8 @@ from webapp.views.itemcart import CartView, CartAddView, CartDeleteView
 from webapp.views.order import OrderListView, OrderCreateView
 from webapp.views.product import IndexView, ProductDetailView, ProductCreateView, ProductDeleteView, ProductUpdateView
 
+app_name = 'webapp'
+
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('product/<int:pk>/', ProductDetailView.as_view(), name='detail_view'),
